@@ -1,4 +1,4 @@
-# Steam Price Pipeline - Version 1.0
+# Steam Pipeline - Version 1.0
 
 ## Overview
 
@@ -222,5 +222,6 @@ rm -rf data/checkpoints/*
 5. Test recovery scenarios
 
 ## License
+
 
 MIT License
