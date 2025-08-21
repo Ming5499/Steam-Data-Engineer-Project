@@ -1,0 +1,96 @@
+{
+  "id": null,
+  "title": "Steam Reviews ETL Dashboard",
+  "tags": ["steam", "etl", "reviews"],
+  "timezone": "browser",
+  "schemaVersion": 36,
+  "version": 1,
+  "refresh": "10s",
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "Reviews Inserted Over Time",
+      "targets": [
+        {
+          "expr": "increase(steam_reviews_inserted_total[1m])",
+          "legendFormat": "Reviews inserted / min"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "color": { "mode": "palette-classic" }
+        }
+      },
+      "gridPos": { "h": 8, "w": 16, "x": 0, "y": 0 }
+    },
+    {
+      "type": "stat",
+      "title": "Total Files Processed",
+      "targets": [
+        {
+          "expr": "steam_review_files_processed_total",
+          "legendFormat": "Files"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": { "unit": "short" }
+      },
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
+      },
+      "gridPos": { "h": 4, "w": 8, "x": 0, "y": 8 }
+    },
+    {
+      "type": "gauge",
+      "title": "Idle Time (seconds)",
+      "targets": [
+        {
+          "expr": "steam_review_idle_seconds",
+          "legendFormat": "Idle time"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "min": 0,
+          "max": 60,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 30 },
+              { "color": "red", "value": 60 }
+            ]
+          }
+        }
+      },
+      "options": {
+        "showThresholdLabels": true,
+        "showThresholdMarkers": true
+      },
+      "gridPos": { "h": 4, "w": 8, "x": 8, "y": 8 }
+    },
+    {
+      "type": "stat",
+      "title": "Last Processed File Index",
+      "targets": [
+        {
+          "expr": "steam_review_last_file",
+          "legendFormat": "Last file"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": { "unit": "short" }
+      },
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
+      },
+      "gridPos": { "h": 4, "w": 8, "x": 0, "y": 12 }
+    }
+  ]
+}

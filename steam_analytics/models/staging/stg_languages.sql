@@ -1,0 +1,7 @@
+{{ config(materialized='view') }}
+
+SELECT
+    lang_id,
+    name
+FROM {{ source('steam_db', 'languages') }}
+WHERE name IS NOT NULL AND name != ''

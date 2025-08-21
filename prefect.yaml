@@ -1,0 +1,109 @@
+# prefect.yaml
+definitions:
+  deployments:
+    - name: steam_price_pipeline
+      flow_name: steam_price_pipeline
+      entrypoint: flows/steam_price_pipeline.py:steam_price_pipeline
+      schedule:
+        cron: "0 15 * * *"  # Run at 3 PM (15:00) everyday
+      work_pool:
+        name: default-agent-pool
+        work_queue_name: default
+        job_variables:
+          image: "python:3.11-slim"
+          command: [
+            "sh", "-c", 
+            "pip install -r /app/requirements.txt && python flows/steam_price_pipeline.py"
+          ]
+
+    - name: steam_review_pipeline
+      flow_name: steam_review_pipeline
+      entrypoint: flows/steam_review_pipeline.py:steam_review_pipeline
+      schedule:
+        cron: "0 16 * * *"  # Run at 3 PM (15:00) everyday
+      work_pool:
+        name: default-agent-pool
+        work_queue_name: default
+        job_variables:
+          image: "python:3.11-slim"
+          command: [
+            "sh", "-c", 
+            "pip install -r /app/requirements.txt && python flows/steam_review_pipeline.py"
+          ]
+
+    - name: pipeline_steam_price
+      flow_name: pipeline_steam_price
+      entrypoint: flows/pipeline_steam_price.py:pipeline_steam_price
+      schedule:
+        cron: "0 15 * * *"  # Run at 3 PM (15:00) everyday
+      work_pool:
+        name: default-agent-pool
+        work_queue_name: default
+        job_variables:
+          image: "python:3.11-slim"
+          command: [
+            "sh", "-c", 
+            "pip install -r /app/requirements.txt && python flows/pipeline_steam_price"
+          ]
+
+
+    - name: pipeline_steam_review
+      flow_name: pipeline_steam_review
+      entrypoint: flows/pipeline_steam_review.py:pipeline_steam_review
+      schedule:
+        cron: "0 15 * * *"  # Run at 3 PM (15:00) everyday
+      work_pool:
+        name: default-agent-pool
+        work_queue_name: default
+        job_variables:
+          image: "python:3.11-slim"
+          command: [
+            "sh", "-c", 
+            "pip install -r /app/requirements.txt && python flows/pipeline_steam_review"
+          ]
+
+    - name: steam_review_monitoring_flow
+      flow_name: steam_review_monitoring_flow
+      entrypoint: flows/steam_review_monitoring_flow.py:steam_review_monitoring_flow
+      schedule:
+        cron: "0 15 * * *"  # Run at 3 PM (15:00) everyday
+      work_pool:
+        name: default-agent-pool
+        work_queue_name: default
+        job_variables:
+          image: "python:3.11-slim"
+          command: [
+            "sh", "-c", 
+            "pip install -r /app/requirements.txt && python flows/steam_review_monitoring_flow"
+          ]
+
+
+    - name: steam_review_recovery_flow
+      flow_name: steam_review_recovery_flow
+      entrypoint: flows/steam_review_recovery_flow.py:steam_review_recovery_flow
+      schedule:
+        cron: "0 15 * * *"  # Run at 6 PM (18:00) everyday
+      work_pool:
+        name: default-agent-pool
+        work_queue_name: default
+        job_variables:
+          image: "python:3.11-slim"
+          command: [
+            "sh", "-c", 
+            "pip install -r /app/requirements.txt && python flows/steam_review_recovery_flow"
+          ]
+
+    - name: test_steam_pipeline
+      flow_name: test_steam_pipeline
+      entrypoint: flows/test_steam_pipeline.py:test_steam_pipeline
+      schedule:
+        cron: "0 15 * * *"  # Run at 6 PM (18:00) everyday
+      work_pool:
+        name: default-agent-pool
+        work_queue_name: default
+        job_variables:
+          image: "python:3.11-slim"
+          command: [
+            "sh", "-c", 
+            "pip install -r /app/requirements.txt && python flows/test_steam_pipeline"
+          ]

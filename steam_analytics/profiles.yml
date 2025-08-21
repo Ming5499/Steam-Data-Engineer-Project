@@ -1,0 +1,12 @@
+steam_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: mysql
+      host: mysql  
+      user: root
+      password: root
+      port: 3306
+      database: steam_db
+      schema: steam_db
+      threads: 4

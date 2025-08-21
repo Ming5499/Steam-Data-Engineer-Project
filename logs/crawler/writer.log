@@ -1,0 +1,30 @@
+2025-08-14 01:35:27 | Process-1 | INFO | Writer started, waiting for INIT...
+2025-08-14 01:35:27 | Process-1 | INFO | Writer received INIT: total_workers=4
+2025-08-14 01:35:32 | Process-1 | INFO | Opened new part file: reviews_part00001.json
+2025-08-14 01:40:07 | Process-1 | INFO | Closed part file index=00001 written=50000
+2025-08-14 01:40:07 | Process-1 | INFO | Opened new part file: reviews_part00002.json
+2025-08-14 01:42:14 | Process-1 | INFO | Closed part file index=00002 written=50000
+2025-08-14 01:42:14 | Process-1 | INFO | Opened new part file: reviews_part00003.json
+2025-08-14 01:43:45 | Process-1 | INFO | Closed part file index=00003 written=50000
+2025-08-14 01:43:45 | Process-1 | INFO | Opened new part file: reviews_part00004.json
+2025-08-14 01:45:02 | Process-1 | INFO | Closed part file index=00004 written=50000
+2025-08-14 01:45:02 | Process-1 | INFO | Opened new part file: reviews_part00005.json
+2025-08-14 01:46:45 | Process-1 | INFO | Closed part file index=00005 written=50000
+2025-08-14 01:46:45 | Process-1 | INFO | Opened new part file: reviews_part00006.json
+2025-08-14 01:48:23 | Process-1 | INFO | Closed part file index=00006 written=50000
+2025-08-14 01:48:23 | Process-1 | INFO | Opened new part file: reviews_part00007.json
+2025-08-14 01:49:57 | Process-1 | INFO | Closed part file index=00007 written=50000
+2025-08-14 01:49:57 | Process-1 | INFO | Opened new part file: reviews_part00008.json
+2025-08-14 01:51:55 | Process-1 | INFO | Closed part file index=00008 written=50000
+2025-08-14 01:51:55 | Process-1 | INFO | Opened new part file: reviews_part00009.json
+2025-08-14 01:53:39 | Process-1 | INFO | Closed part file index=00009 written=50000
+2025-08-14 01:53:39 | Process-1 | INFO | Opened new part file: reviews_part00010.json
+2025-08-14 01:55:13 | Process-1 | INFO | Closed part file index=00010 written=50000
+2025-08-14 01:55:13 | Process-1 | INFO | Opened new part file: reviews_part00011.json
+2025-08-14 01:56:43 | Process-1 | INFO | Closed part file index=00011 written=50000
+2025-08-14 01:56:43 | Process-1 | INFO | Opened new part file: reviews_part00012.json
+2025-08-14 01:58:05 | Process-1 | INFO | Closed part file index=00012 written=50000
+2025-08-14 01:58:05 | Process-1 | INFO | Opened new part file: reviews_part00013.json
+2025-08-18 01:38:46 | Process-1 | INFO | Writer started, waiting for INIT...
+2025-08-18 01:38:46 | Process-1 | INFO | Writer received INIT: total_workers=4
+2025-08-18 01:38:51 | Process-1 | INFO | Opened new part file: reviews_part00001.json

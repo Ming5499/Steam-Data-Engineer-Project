@@ -1,0 +1,5 @@
+use steam
+db.reviews.createIndex({ appid: 1 })
+db.reviews.createIndex({ author_steamid: 1 })
+db.reviews.createIndex({ language: 1 })
+db.reviews.createIndex({ appid: 1, language: 1 })

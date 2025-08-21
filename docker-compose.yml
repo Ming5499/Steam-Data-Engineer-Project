@@ -1,0 +1,296 @@
+version: "3.11"
+
+services:
+
+  pushgateway:
+    image: prom/pushgateway:latest
+    container_name: pushgateway
+    ports:
+      - "9091:9091"
+    networks:
+      - steam_network
+    restart: unless-stopped
+    command:
+      - '--web.listen-address=:9091'
+      - '--persistence.file=/tmp/metric.store'
+      - '--persistence.interval=5m'
+    volumes:
+      - pushgateway_data:/tmp
+
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: steam-project_prometheus_1
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    networks:
+      - steam_network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: steam-project_grafana_1
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
+      - ./monitoring/grafana/dashboards:/var/lib/grafana/dashboards      
+    depends_on:
+      - prometheus
+    networks:
+      - steam_network
+
+  mysql:
+    image: mysql:8.0
+    container_name: steam-project_mysql_1
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: steam_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - steam_network
+
+  mysqld-exporter:
+    image: prom/mysqld-exporter:latest
+    container_name: steam-project_mysqld_exporter_1
+    restart: unless-stopped
+    user: "root"
+    volumes:
+      - ./monitoring/mysqld-exporter/.my.cnf:/root/.my.cnf:ro
+    ports:
+      - "9104:9104"
+    command: --collect.global_status --collect.global_variables --web.listen-address=:9104 --config.my-cnf=/root/.my.cnf
+    depends_on:
+      - mysql
+    networks:
+      - steam_network
+
+  mongodb:
+    image: mongo:latest
+    container_name: steam-project_mongodb_1
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - steam_network
+
+  mongodb-exporter:
+    image: bitnami/mongodb-exporter:latest
+    container_name: steam-project_mongodb_exporter_1
+    command:
+      - '--mongodb.uri=mongodb://mongodb:27017'
+    ports:
+      - "9216:9216"
+    networks:
+      - steam_network
+    depends_on:
+      - mongodb
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    container_name: steam-project_zookeeper_1
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+      ZOOKEEPER_SERVER_ID: 1  
+      ZOOKEEPER_DATA_DIR: /var/lib/zookeeper/data  
+      ZOOKEEPER_LOG_DIR: /var/lib/zookeeper/log    
+    ports:
+      - "2181:2181"
+    volumes:
+      - zookeeper_data:/var/lib/zookeeper/data  
+      - zookeeper_log:/var/lib/zookeeper/log    
+    networks:
+      - steam_network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.3.2
+    container_name: steam-project_kafka_1
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo -e '0000000: 0000' | nc -w 1 kafka 9092 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 40s
+    networks:
+      - steam_network
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+
+  kafdrop:
+    image: obsidiandynamics/kafdrop
+    container_name: steam-project_kafdrop_1
+    ports:
+      - "9000:9000"
+    environment:
+      KAFKA_BROKERCONNECT: kafka:9092
+    depends_on:
+      - kafka
+    networks:
+      - steam_network
+
+  kafka-exporter:
+    image: danielqsj/kafka-exporter:latest
+    container_name: steam-project_kafka_exporter_1
+    environment:
+      KAFKA_BROKERS: kafka:9092
+    ports:
+      - "9308:9308"
+    depends_on:
+      kafka:
+        condition: service_healthy
+    networks:
+      - steam_network
+
+  debezium:
+    image: debezium/connect:2.3
+    container_name: steam-project_debezium_1
+    ports:
+      - "8083:8083"
+    environment:
+      BOOTSTRAP_SERVERS: kafka:9092
+      GROUP_ID: 1
+      CONFIG_STORAGE_TOPIC: my_connect_configs
+      OFFSET_STORAGE_TOPIC: my_connect_offsets
+      STATUS_STORAGE_TOPIC: my_connect_statuses
+    depends_on:
+      - kafka
+      - mysql
+    networks:
+      - steam_network
+
+  prefect_server:
+    image: prefecthq/prefect:3-latest
+    container_name: steam-project_prefect_server_1
+    command: >
+      prefect server start --host 0.0.0.0 --port 4200 
+    ports:
+      - "4200:4200"
+    environment:
+      PREFECT_API_URL: http://localhost:4200/api
+      PREFECT_LOGGING_LEVEL: INFO
+      PREFECT_SERVER_METRICS_ENABLED: "true"
+      PREFECT_SERVER_METRICS_ENDPOINT: "/metrics"
+    volumes:
+      - prefect_data:/root/.prefect
+    networks:
+      - steam_network
+
+  prefect_bootstrap:
+    image: prefecthq/prefect:3-latest
+    container_name: steam-project_prefect_bootstrap_1
+    depends_on:
+      - prefect_server
+    environment:
+      PREFECT_API_URL: http://prefect_server:4200/api
+    entrypoint: ["/bin/sh", "-lc"]
+    command: >
+      'prefect work-pool create default-agent-pool --type process || true'
+    restart: "no"
+    networks:
+      - steam_network
+
+  prefect_worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: steam-project_prefect_worker_1
+    depends_on:
+      - prefect_server
+      - prefect_bootstrap
+    environment:
+      PREFECT_API_URL: http://prefect_server:4200/api
+      PREFECT_LOGGING_LEVEL: INFO
+      MONGO_URI: mongodb://mongodb:27017
+      PREFECT_WORKER_PREFETCH_SECONDS: 10
+      # Thêm các biến môi trường để enable metrics
+      PREFECT_LOGGING_SETTINGS_PATH: /app/config/logging.yml
+      PREFECT_METRICS_SERVER_ENABLED: "true"
+      PREFECT_METRICS_SERVER_HOST: "0.0.0.0"
+      PREFECT_METRICS_SERVER_PORT: "8000"
+    volumes:
+      - ./data:/app/data
+      - ./utils:/app/utils
+      - ./tasks:/app/tasks
+      - ./flows:/app/flows
+      - ./config:/app/config
+      - ./monitoring:/app/monitoring
+    command: >
+      bash -lc "
+      echo '⏳ Waiting for Prefect API...';
+      for i in {1..60}; do curl -sf http://prefect_server:4200/api/health && break || sleep 2; done;
+      echo 'Starting Prefect worker with metrics...';
+      prefect worker start --pool default-agent-pool --type process
+      "
+    ports:
+      - "8000:8000" 
+    networks:
+      - steam_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/metrics"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: steam-project_cadvisor_1
+    ports:
+      - "8080:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      - steam_network
+
+  dbt:
+    image: custom-dbt-mysql
+    container_name: steam-project_dbt_1
+    volumes:
+      - ./:/usr/app/dbt  
+      - ~/.dbt:/root/.dbt
+      - ./steam_analytics:/usr/app/dbt/steam_analytics
+    working_dir: /usr/app/dbt  
+    depends_on:
+      - mysql
+    networks:
+      - steam_network
+    entrypoint: ["tail", "-f", "/dev/null"]
+
+volumes:
+  pushgateway_data:
+  mysql_data:
+  mongo_data:
+  grafana_data:
+  prefect_data:
+  kafka_data:
+  prometheus_data:
+  zookeeper_data:  
+  zookeeper_log:   
+networks:
+  steam_network:
+    driver: bridge

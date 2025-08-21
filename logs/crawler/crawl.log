@@ -1,0 +1,179 @@
+2025-08-14 01:31:32 | MainProcess | INFO | === START Steam Reviews Crawler (validated proxies) ===
+2025-08-14 01:31:33 | MainProcess | INFO | Loaded 260784 games from CSV.
+2025-08-14 01:31:33 | MainProcess | INFO | 260784 games remain after applying resume filter.
+2025-08-14 01:31:35 | MainProcess | INFO | Fetched 35743 raw proxies from API. Validating against Steam asynchronously...
+2025-08-14 01:31:37 | MainProcess | INFO | VALID PROXY [1/5000] http://14.224.76.32:8080 (checked 395/35743)
+2025-08-14 01:31:37 | MainProcess | INFO | Proxy validation progress: checked=500/35743 good=1
+2025-08-14 01:31:38 | MainProcess | INFO | VALID PROXY [2/5000] http://88.210.38.50:3128 (checked 877/35743)
+2025-08-14 01:31:38 | MainProcess | INFO | VALID PROXY [3/5000] http://8.219.97.248:80 (checked 888/35743)
+2025-08-14 01:31:38 | MainProcess | INFO | Proxy validation progress: checked=1000/35743 good=3
+2025-08-14 01:31:39 | MainProcess | INFO | VALID PROXY [4/5000] http://112.216.83.10:3128 (checked 1060/35743)
+2025-08-14 01:31:41 | MainProcess | INFO | Proxy validation progress: checked=1500/35743 good=4
+2025-08-14 01:31:41 | MainProcess | INFO | VALID PROXY [5/5000] http://121.101.132.30:8999 (checked 1568/35743)
+2025-08-14 01:31:42 | MainProcess | INFO | Proxy validation progress: checked=2000/35743 good=5
+2025-08-14 01:31:43 | MainProcess | INFO | Proxy validation progress: checked=2500/35743 good=5
+2025-08-14 01:31:44 | MainProcess | INFO | Proxy validation progress: checked=3000/35743 good=5
+2025-08-14 01:31:46 | MainProcess | INFO | Proxy validation progress: checked=3500/35743 good=5
+2025-08-14 01:31:46 | MainProcess | INFO | VALID PROXY [6/5000] http://103.242.104.178:8080 (checked 3575/35743)
+2025-08-14 01:31:47 | MainProcess | INFO | Proxy validation progress: checked=4000/35743 good=6
+2025-08-14 01:31:48 | MainProcess | INFO | Proxy validation progress: checked=4500/35743 good=6
+2025-08-14 01:31:50 | MainProcess | INFO | Proxy validation progress: checked=5000/35743 good=6
+2025-08-14 01:31:51 | MainProcess | INFO | Proxy validation progress: checked=5500/35743 good=6
+2025-08-14 01:31:53 | MainProcess | INFO | Proxy validation progress: checked=6000/35743 good=6
+2025-08-14 01:31:55 | MainProcess | INFO | Proxy validation progress: checked=6500/35743 good=6
+2025-08-14 01:31:56 | MainProcess | INFO | Proxy validation progress: checked=7000/35743 good=6
+2025-08-14 01:31:58 | MainProcess | INFO | Proxy validation progress: checked=7500/35743 good=6
+2025-08-14 01:31:59 | MainProcess | INFO | VALID PROXY [7/5000] http://23.237.210.82:80 (checked 7998/35743)
+2025-08-14 01:31:59 | MainProcess | INFO | Proxy validation progress: checked=8000/35743 good=7
+2025-08-14 01:32:00 | MainProcess | INFO | VALID PROXY [8/5000] http://23.239.111.194:8080 (checked 8007/35743)
+2025-08-14 01:32:03 | MainProcess | INFO | Proxy validation progress: checked=8500/35743 good=8
+2025-08-14 01:32:07 | MainProcess | INFO | Proxy validation progress: checked=9000/35743 good=8
+2025-08-14 01:32:12 | MainProcess | INFO | Proxy validation progress: checked=9500/35743 good=8
+2025-08-14 01:32:16 | MainProcess | INFO | Proxy validation progress: checked=10000/35743 good=8
+2025-08-14 01:32:20 | MainProcess | INFO | Proxy validation progress: checked=10500/35743 good=8
+2025-08-14 01:32:24 | MainProcess | INFO | Proxy validation progress: checked=11000/35743 good=8
+2025-08-14 01:32:29 | MainProcess | INFO | Proxy validation progress: checked=11500/35743 good=8
+2025-08-14 01:32:34 | MainProcess | INFO | Proxy validation progress: checked=12000/35743 good=8
+2025-08-14 01:32:39 | MainProcess | INFO | Proxy validation progress: checked=12500/35743 good=8
+2025-08-14 01:32:43 | MainProcess | INFO | Proxy validation progress: checked=13000/35743 good=8
+2025-08-14 01:32:46 | MainProcess | INFO | Proxy validation progress: checked=13500/35743 good=8
+2025-08-14 01:32:51 | MainProcess | INFO | Proxy validation progress: checked=14000/35743 good=8
+2025-08-14 01:32:56 | MainProcess | INFO | Proxy validation progress: checked=14500/35743 good=8
+2025-08-14 01:33:01 | MainProcess | INFO | Proxy validation progress: checked=15000/35743 good=8
+2025-08-14 01:33:06 | MainProcess | INFO | Proxy validation progress: checked=15500/35743 good=8
+2025-08-14 01:33:11 | MainProcess | INFO | Proxy validation progress: checked=16000/35743 good=8
+2025-08-14 01:33:16 | MainProcess | INFO | Proxy validation progress: checked=16500/35743 good=8
+2025-08-14 01:33:21 | MainProcess | INFO | Proxy validation progress: checked=17000/35743 good=8
+2025-08-14 01:33:26 | MainProcess | INFO | Proxy validation progress: checked=17500/35743 good=8
+2025-08-14 01:33:31 | MainProcess | INFO | Proxy validation progress: checked=18000/35743 good=8
+2025-08-14 01:33:36 | MainProcess | INFO | Proxy validation progress: checked=18500/35743 good=8
+2025-08-14 01:33:39 | MainProcess | INFO | Proxy validation progress: checked=19000/35743 good=8
+2025-08-14 01:33:41 | MainProcess | INFO | Proxy validation progress: checked=19500/35743 good=8
+2025-08-14 01:33:43 | MainProcess | INFO | Proxy validation progress: checked=20000/35743 good=8
+2025-08-14 01:33:44 | MainProcess | INFO | Proxy validation progress: checked=20500/35743 good=8
+2025-08-14 01:33:46 | MainProcess | INFO | Proxy validation progress: checked=21000/35743 good=8
+2025-08-14 01:33:49 | MainProcess | INFO | Proxy validation progress: checked=21500/35743 good=8
+2025-08-14 01:33:51 | MainProcess | INFO | Proxy validation progress: checked=22000/35743 good=8
+2025-08-14 01:33:55 | MainProcess | INFO | Proxy validation progress: checked=22500/35743 good=8
+2025-08-14 01:33:57 | MainProcess | INFO | VALID PROXY [9/5000] http://165.225.113.220:11462 (checked 22878/35743)
+2025-08-14 01:33:58 | MainProcess | INFO | Proxy validation progress: checked=23000/35743 good=9
+2025-08-14 01:34:00 | MainProcess | INFO | VALID PROXY [10/5000] http://165.225.113.220:11814 (checked 23324/35743)
+2025-08-14 01:34:01 | MainProcess | INFO | Proxy validation progress: checked=23500/35743 good=10
+2025-08-14 01:34:03 | MainProcess | INFO | Proxy validation progress: checked=24000/35743 good=10
+2025-08-14 01:34:05 | MainProcess | INFO | Proxy validation progress: checked=24500/35743 good=10
+2025-08-14 01:34:07 | MainProcess | INFO | Proxy validation progress: checked=25000/35743 good=10
+2025-08-14 01:34:08 | MainProcess | INFO | Proxy validation progress: checked=25500/35743 good=10
+2025-08-14 01:34:10 | MainProcess | INFO | Proxy validation progress: checked=26000/35743 good=10
+2025-08-14 01:34:11 | MainProcess | INFO | Proxy validation progress: checked=26500/35743 good=10
+2025-08-14 01:34:14 | MainProcess | INFO | Proxy validation progress: checked=27000/35743 good=10
+2025-08-14 01:34:16 | MainProcess | INFO | Proxy validation progress: checked=27500/35743 good=10
+2025-08-14 01:34:19 | MainProcess | INFO | Proxy validation progress: checked=28000/35743 good=10
+2025-08-14 01:34:21 | MainProcess | INFO | Proxy validation progress: checked=28500/35743 good=10
+2025-08-14 01:34:23 | MainProcess | INFO | Proxy validation progress: checked=29000/35743 good=10
+2025-08-14 01:34:28 | MainProcess | INFO | Proxy validation progress: checked=29500/35743 good=10
+2025-08-14 01:34:32 | MainProcess | INFO | Proxy validation progress: checked=30000/35743 good=10
+2025-08-14 01:34:36 | MainProcess | INFO | Proxy validation progress: checked=30500/35743 good=10
+2025-08-14 01:34:41 | MainProcess | INFO | Proxy validation progress: checked=31000/35743 good=10
+2025-08-14 01:34:45 | MainProcess | INFO | Proxy validation progress: checked=31500/35743 good=10
+2025-08-14 01:34:50 | MainProcess | INFO | Proxy validation progress: checked=32000/35743 good=10
+2025-08-14 01:34:54 | MainProcess | INFO | Proxy validation progress: checked=32500/35743 good=10
+2025-08-14 01:34:59 | MainProcess | INFO | Proxy validation progress: checked=33000/35743 good=10
+2025-08-14 01:35:04 | MainProcess | INFO | Proxy validation progress: checked=33500/35743 good=10
+2025-08-14 01:35:09 | MainProcess | INFO | Proxy validation progress: checked=34000/35743 good=10
+2025-08-14 01:35:14 | MainProcess | INFO | Proxy validation progress: checked=34500/35743 good=10
+2025-08-14 01:35:19 | MainProcess | INFO | Proxy validation progress: checked=35000/35743 good=10
+2025-08-14 01:35:24 | MainProcess | INFO | Proxy validation progress: checked=35500/35743 good=10
+2025-08-14 01:35:26 | MainProcess | INFO | Proxy validation progress: checked=35743/35743 good=10
+2025-08-14 01:35:26 | MainProcess | INFO | Validation complete: 10 proxies valid for Steam (requested max 5000).
+2025-08-14 01:35:26 | MainProcess | INFO | Using 10 validated proxies for crawling.
+2025-08-14 01:35:27 | MainProcess | INFO | Spawned worker 0 (games=65196 proxies=3)
+2025-08-14 01:35:28 | MainProcess | INFO | Spawned worker 1 (games=65196 proxies=3)
+2025-08-14 01:35:29 | MainProcess | INFO | Spawned worker 2 (games=65196 proxies=3)
+2025-08-14 01:35:30 | MainProcess | INFO | Spawned worker 3 (games=65196 proxies=1)
+2025-08-18 01:34:16 | MainProcess | INFO | === START Steam Reviews Crawler (validated proxies) ===
+2025-08-18 01:34:48 | MainProcess | INFO | === START Steam Reviews Crawler (validated proxies) ===
+2025-08-18 01:34:49 | MainProcess | INFO | Loaded 260784 games from CSV.
+2025-08-18 01:34:49 | MainProcess | INFO | 226112 games remain after applying resume filter.
+2025-08-18 01:34:52 | MainProcess | INFO | Fetched 35664 raw proxies from API. Validating against Steam asynchronously...
+2025-08-18 01:34:55 | MainProcess | INFO | Proxy validation progress: checked=500/35664 good=0
+2025-08-18 01:34:56 | MainProcess | INFO | VALID PROXY [1/5000] http://88.210.38.50:3128 (checked 850/35664)
+2025-08-18 01:34:56 | MainProcess | INFO | Proxy validation progress: checked=1000/35664 good=1
+2025-08-18 01:34:57 | MainProcess | INFO | Proxy validation progress: checked=1500/35664 good=1
+2025-08-18 01:34:58 | MainProcess | INFO | Proxy validation progress: checked=2000/35664 good=1
+2025-08-18 01:34:59 | MainProcess | INFO | Proxy validation progress: checked=2500/35664 good=1
+2025-08-18 01:35:00 | MainProcess | INFO | Proxy validation progress: checked=3000/35664 good=1
+2025-08-18 01:35:01 | MainProcess | INFO | Proxy validation progress: checked=3500/35664 good=1
+2025-08-18 01:35:03 | MainProcess | INFO | Proxy validation progress: checked=4000/35664 good=1
+2025-08-18 01:35:04 | MainProcess | INFO | Proxy validation progress: checked=4500/35664 good=1
+2025-08-18 01:35:06 | MainProcess | INFO | Proxy validation progress: checked=5000/35664 good=1
+2025-08-18 01:35:07 | MainProcess | INFO | Proxy validation progress: checked=5500/35664 good=1
+2025-08-18 01:35:08 | MainProcess | INFO | Proxy validation progress: checked=6000/35664 good=1
+2025-08-18 01:35:10 | MainProcess | INFO | Proxy validation progress: checked=6500/35664 good=1
+2025-08-18 01:35:10 | MainProcess | INFO | VALID PROXY [2/5000] http://27.79.206.225:16000 (checked 6514/35664)
+2025-08-18 01:35:11 | MainProcess | INFO | Proxy validation progress: checked=7000/35664 good=2
+2025-08-18 01:35:12 | MainProcess | INFO | Proxy validation progress: checked=7500/35664 good=2
+2025-08-18 01:35:14 | MainProcess | INFO | VALID PROXY [3/5000] http://23.237.210.82:80 (checked 7999/35664)
+2025-08-18 01:35:14 | MainProcess | INFO | Proxy validation progress: checked=8000/35664 good=3
+2025-08-18 01:35:14 | MainProcess | INFO | VALID PROXY [4/5000] http://142.93.239.223:3128 (checked 8016/35664)
+2025-08-18 01:35:19 | MainProcess | INFO | Proxy validation progress: checked=8500/35664 good=4
+2025-08-18 01:35:23 | MainProcess | INFO | Proxy validation progress: checked=9000/35664 good=4
+2025-08-18 01:35:27 | MainProcess | INFO | Proxy validation progress: checked=9500/35664 good=4
+2025-08-18 01:35:32 | MainProcess | INFO | Proxy validation progress: checked=10000/35664 good=4
+2025-08-18 01:35:37 | MainProcess | INFO | Proxy validation progress: checked=10500/35664 good=4
+2025-08-18 01:35:42 | MainProcess | INFO | Proxy validation progress: checked=11000/35664 good=4
+2025-08-18 01:35:47 | MainProcess | INFO | Proxy validation progress: checked=11500/35664 good=4
+2025-08-18 01:35:52 | MainProcess | INFO | Proxy validation progress: checked=12000/35664 good=4
+2025-08-18 01:35:56 | MainProcess | INFO | Proxy validation progress: checked=12500/35664 good=4
+2025-08-18 01:35:58 | MainProcess | INFO | Proxy validation progress: checked=13000/35664 good=4
+2025-08-18 01:36:02 | MainProcess | INFO | Proxy validation progress: checked=13500/35664 good=4
+2025-08-18 01:36:08 | MainProcess | INFO | Proxy validation progress: checked=14000/35664 good=4
+2025-08-18 01:36:12 | MainProcess | INFO | Proxy validation progress: checked=14500/35664 good=4
+2025-08-18 01:36:18 | MainProcess | INFO | Proxy validation progress: checked=15000/35664 good=4
+2025-08-18 01:36:22 | MainProcess | INFO | Proxy validation progress: checked=15500/35664 good=4
+2025-08-18 01:36:28 | MainProcess | INFO | Proxy validation progress: checked=16000/35664 good=4
+2025-08-18 01:36:32 | MainProcess | INFO | Proxy validation progress: checked=16500/35664 good=4
+2025-08-18 01:36:37 | MainProcess | INFO | Proxy validation progress: checked=17000/35664 good=4
+2025-08-18 01:36:42 | MainProcess | INFO | Proxy validation progress: checked=17500/35664 good=4
+2025-08-18 01:36:47 | MainProcess | INFO | Proxy validation progress: checked=18000/35664 good=4
+2025-08-18 01:36:52 | MainProcess | INFO | Proxy validation progress: checked=18500/35664 good=4
+2025-08-18 01:36:58 | MainProcess | INFO | Proxy validation progress: checked=19000/35664 good=4
+2025-08-18 01:37:02 | MainProcess | INFO | Proxy validation progress: checked=19500/35664 good=4
+2025-08-18 01:37:08 | MainProcess | INFO | Proxy validation progress: checked=20000/35664 good=4
+2025-08-18 01:37:10 | MainProcess | INFO | Proxy validation progress: checked=20500/35664 good=4
+2025-08-18 01:37:13 | MainProcess | INFO | Proxy validation progress: checked=21000/35664 good=4
+2025-08-18 01:37:15 | MainProcess | INFO | Proxy validation progress: checked=21500/35664 good=4
+2025-08-18 01:37:18 | MainProcess | INFO | Proxy validation progress: checked=22000/35664 good=4
+2025-08-18 01:37:21 | MainProcess | INFO | Proxy validation progress: checked=22500/35664 good=4
+2025-08-18 01:37:24 | MainProcess | INFO | Proxy validation progress: checked=23000/35664 good=4
+2025-08-18 01:37:27 | MainProcess | INFO | Proxy validation progress: checked=23500/35664 good=4
+2025-08-18 01:37:29 | MainProcess | INFO | Proxy validation progress: checked=24000/35664 good=4
+2025-08-18 01:37:31 | MainProcess | INFO | Proxy validation progress: checked=24500/35664 good=4
+2025-08-18 01:37:32 | MainProcess | INFO | Proxy validation progress: checked=25000/35664 good=4
+2025-08-18 01:37:34 | MainProcess | INFO | Proxy validation progress: checked=25500/35664 good=4
+2025-08-18 01:37:35 | MainProcess | INFO | Proxy validation progress: checked=26000/35664 good=4
+2025-08-18 01:37:37 | MainProcess | INFO | Proxy validation progress: checked=26500/35664 good=4
+2025-08-18 01:37:38 | MainProcess | INFO | Proxy validation progress: checked=27000/35664 good=4
+2025-08-18 01:37:39 | MainProcess | INFO | Proxy validation progress: checked=27500/35664 good=4
+2025-08-18 01:37:40 | MainProcess | INFO | Proxy validation progress: checked=28000/35664 good=4
+2025-08-18 01:37:42 | MainProcess | INFO | Proxy validation progress: checked=28500/35664 good=4
+2025-08-18 01:37:46 | MainProcess | INFO | Proxy validation progress: checked=29000/35664 good=4
+2025-08-18 01:37:51 | MainProcess | INFO | Proxy validation progress: checked=29500/35664 good=4
+2025-08-18 01:37:56 | MainProcess | INFO | Proxy validation progress: checked=30000/35664 good=4
+2025-08-18 01:37:58 | MainProcess | INFO | Proxy validation progress: checked=30500/35664 good=4
+2025-08-18 01:37:59 | MainProcess | INFO | Proxy validation progress: checked=31000/35664 good=4
+2025-08-18 01:38:04 | MainProcess | INFO | Proxy validation progress: checked=31500/35664 good=4
+2025-08-18 01:38:08 | MainProcess | INFO | Proxy validation progress: checked=32000/35664 good=4
+2025-08-18 01:38:13 | MainProcess | INFO | Proxy validation progress: checked=32500/35664 good=4
+2025-08-18 01:38:18 | MainProcess | INFO | Proxy validation progress: checked=33000/35664 good=4
+2025-08-18 01:38:23 | MainProcess | INFO | Proxy validation progress: checked=33500/35664 good=4
+2025-08-18 01:38:28 | MainProcess | INFO | Proxy validation progress: checked=34000/35664 good=4
+2025-08-18 01:38:32 | MainProcess | INFO | Proxy validation progress: checked=34500/35664 good=4
+2025-08-18 01:38:38 | MainProcess | INFO | Proxy validation progress: checked=35000/35664 good=4
+2025-08-18 01:38:42 | MainProcess | INFO | Proxy validation progress: checked=35500/35664 good=4
+2025-08-18 01:38:44 | MainProcess | INFO | Proxy validation progress: checked=35664/35664 good=4
+2025-08-18 01:38:44 | MainProcess | INFO | Validation complete: 4 proxies valid for Steam (requested max 5000).
+2025-08-18 01:38:44 | MainProcess | INFO | Using 4 validated proxies for crawling.
+2025-08-18 01:38:46 | MainProcess | INFO | Spawned worker 0 (games=56528 proxies=1)
+2025-08-18 01:38:47 | MainProcess | INFO | Spawned worker 1 (games=56528 proxies=1)
+2025-08-18 01:38:49 | MainProcess | INFO | Spawned worker 2 (games=56528 proxies=1)
+2025-08-18 01:38:50 | MainProcess | INFO | Spawned worker 3 (games=56528 proxies=1)

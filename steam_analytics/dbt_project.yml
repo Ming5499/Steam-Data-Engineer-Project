@@ -1,0 +1,59 @@
+name: 'steam_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'steam_analytics'  
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+  - "dbt_modules" 
+
+models:
+  steam_analytics:
+    staging:
+      +materialized: view
+      +schema: staging  
+      +tags: ["staging"]  
+      
+    # Marts layer
+    marts:
+      core:
+        +materialized: table
+        +schema: analytics 
+        +tags: ["core", "marts"]
+        +persist_docs: 
+          relation: true
+          columns: true
+          
+      business:
+        +materialized: table
+        +schema: analytics
+        +tags: ["business", "marts"]
+        
+    # Utilities
+    utilities:
+      +materialized: ephemeral
+      +tags: ["utils"]
+      +language: python
+
+
+tests:
+  steam_analytics:
+    +severity: warn  
+
+
+vars:
+  # MongoDB config
+  mongo_uri: "mongodb://localhost:27017/"
+  mongo_database: "steam_db"
+  mongo_collection: "reviews"
+  date_format: "YYYY-MM-DD"

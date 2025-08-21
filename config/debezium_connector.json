@@ -1,0 +1,19 @@
+{
+  "name": "mysql-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "tasks.max": "1",
+    "database.hostname": "mysql",
+    "database.port": "3306",
+    "database.user": "root",
+    "database.password": "root",
+    "database.server.id": "184054",
+    "topic.prefix": "mysql-server", 
+    "database.whitelist": "steam_db",
+    "table.whitelist": "steam_db.games,steam_db.developers,steam_db.publishers,steam_db.languages,steam_db.prices",
+    "database.history.kafka.bootstrap.servers": "kafka:9092",
+    "database.history.kafka.topic": "schema-changes.steam_db",
+    "include.schema.changes": "true",
+    "snapshot.mode": "initial"
+  }
+}

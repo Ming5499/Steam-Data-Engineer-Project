@@ -1,0 +1,139 @@
+version: 2
+
+sources:
+  - name: steam_db
+    database: steam_db
+    tables:
+      - name: games
+      - name: developers
+      - name: publishers
+      - name: genres
+      - name: languages
+      - name: game_developers
+      - name: game_publishers
+      - name: game_genres
+      - name: game_languages
+      - name: prices
+      - name: crawl_state
+
+models:
+  - name: stg_games
+    columns:
+      - name: game_id
+        tests:
+          - unique
+          - not_null
+      - name: title
+        tests:
+          - not_null
+      - name: required_age
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 18
+  - name: stg_developers
+    columns:
+      - name: dev_id
+        tests:
+          - unique
+          - not_null
+      - name: name
+        tests:
+          - not_null
+  - name: stg_publishers
+    columns:
+      - name: pub_id
+        tests:
+          - unique
+          - not_null
+      - name: name
+        tests:
+          - not_null
+  - name: stg_genres
+    columns:
+      - name: genre_id
+        tests:
+          - unique
+          - not_null
+      - name: name
+        tests:
+          - not_null
+  - name: stg_languages
+    columns:
+      - name: lang_id
+        tests:
+          - unique
+          - not_null
+      - name: name
+        tests:
+          - not_null
+  - name: stg_prices
+    columns:
+      - name: price_id
+        tests:
+          - unique
+          - not_null
+      - name: game_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_games')
+              field: game_id
+      - name: price
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+      - name: discount
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+              max_value: 100
+      - name: initial_price
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              min_value: 0
+  - name: stg_crawl_state
+    columns:
+      - name: game_appid
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_games')
+              field: game_id
+  - name: stg_reviews
+    columns:
+      - name: appid
+        tests:
+          - not_null
+      - name: author_steamid
+        tests:
+          - not_null
+  - name: dim_games
+    columns:
+      - name: game_id
+        tests:
+          - unique
+          - not_null
+  - name: fact_reviews
+    columns:
+      - name: appid
+        tests:
+          - not_null
+      - name: review_count
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+  - name: game_quality_metrics
+    columns:
+      - name: game_id
+        tests:
+          - unique
+          - not_null
+      - name: review_count
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
